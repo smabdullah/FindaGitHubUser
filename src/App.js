@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import './App.css';
 
 function App() {
   const [data, setData] = useState(null);
@@ -18,10 +17,10 @@ function App() {
     const success = () => {
       return(
       <div>
-        <h1>{data.name}</h1>
-        <p>{data.bio}</p>
-        <h2>Works in: {data.company}</h2>
-        <h3>Based on: {data.location}</h3>
+        {data.name && <h2>{data.name}</h2>}
+        {data.bio && <p>{data.bio}</p>}
+        {data.company && <h3>Works in: {data.company}</h3>}
+        {data.location && <h3>Based on: {data.location}</h3>}
         <img src = {data.avatar_url} width={150} alt=''/>
       </div>
       );
@@ -38,11 +37,13 @@ function App() {
     return (
       <>
         <div>
-          <h2> Search the details of a Git user</h2>
-          <label>Login name</label>
-          <input id='data' placeholder='user name...' autoFocus onKeyUp={e=>{
-            if(e.keyCode === 13){setUser(document.getElementById('data').value)}}}>
-          </input>
+          <h2>Search the details of a Git user</h2>
+          <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input className="mdl-textfield__input" type="text" id="data" autoFocus onKeyUp={e=>{
+              if(e.keyCode === 13){setUser(document.getElementById('data').value)}}}>
+            </input>
+            <label className="mdl-textfield__label" htmlFor="data">Login name</label>
+          </div>
         </div>
           {content}    
       </>

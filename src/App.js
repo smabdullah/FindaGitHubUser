@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import './App.css';
 
 function App() {
   const [data, setData] = useState(null);
@@ -38,11 +39,16 @@ function App() {
       <>
         <div>
           <h2>Search the details of a Git user</h2>
-          <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input className="mdl-textfield__input" type="text" id="data" autoFocus onKeyUp={e=>{
-              if(e.keyCode === 13){setUser(document.getElementById('data').value)}}}>
-            </input>
-            <label className="mdl-textfield__label" htmlFor="data">Login name</label>
+          <div>
+            <div><input type="text" id="data" autoFocus placeholder="login name..." onKeyUp={e=>{
+              if(e.keyCode === 13)
+              {
+                setUser(document.getElementById('data').value)
+                document.getElementById('data').value = ''
+
+              }
+              }}>
+            </input></div>
           </div>
         </div>
           {content}    

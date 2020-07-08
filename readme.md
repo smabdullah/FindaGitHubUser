@@ -1,4 +1,4 @@
-A Slack app to get information about a Git user
+A React app to get information about a Git user
 
 App home page: https://find-a-git-user.netlify.app/
 
